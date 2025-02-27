@@ -14,6 +14,10 @@ class User extends Authenticatable
 
     // Off fillable rows
     protected $guarded = false;
+
+    public function accesses() {
+        return $this->hasMany(Accesses::class);
+    }
  
     protected $hidden = [
         'password',

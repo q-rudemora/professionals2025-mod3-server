@@ -16,6 +16,14 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::prefix('files')->group(function() {
         Route::post('/', [FilesController::class, 'upload']);
+        Route::get('/disk', [FilesController::class, 'disk']);
+        Route::get('/shared', [FilesController::class, 'shared']);
         Route::patch('/{file_id}', [FilesController::class, 'update']);
+        Route::delete('/{files_id}', [FilesController::class, 'delete']);
+        Route::get('/{files_id}', [FilesController::class, 'download']);
+        Route::prefix('/{files_id}/accesses')->group(function() {
+            Route::post('/', [FilesController::class, 'store']);
+            Route::delete('/', [FilesController::class, 'ac_delete']);
+        });
     });
 });

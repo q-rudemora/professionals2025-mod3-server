@@ -8,4 +8,8 @@ class Files extends Model
 {
     // Off fillable rows
     protected $guarded = false;
+
+    public function accesses() {
+        return $this->hasMany(Accesses::class);
+    }
 }
