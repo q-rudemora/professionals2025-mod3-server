@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // Off fillable rows
     protected $guarded = false;
  
     protected $hidden = [
