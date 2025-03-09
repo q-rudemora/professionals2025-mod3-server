@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('fullname');
             $table->timestamps();
         });
-    }
+    }   
     public function down(): void
     {
         Schema::dropIfExists('accesses');
